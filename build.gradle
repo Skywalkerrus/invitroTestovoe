@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+tasks.withType(Test) {
+    systemProperty 'file.encoding', 'UTF-8'
+}
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'junit:junit:4.13.2'
+
+    implementation 'io.cucumber:cucumber-java:7.20.1'
+    implementation 'io.cucumber:cucumber-junit:7.20.1'
+    testImplementation 'io.cucumber:cucumber-gherkin:7.20.1'
+    implementation 'io.cucumber:cucumber-core:7.20.1'
+
+    implementation 'com.codeborne:selenide:7.6.0'
+    testImplementation 'io.qameta.allure:allure-cucumber7-jvm:2.29.1'
+
+}
+
+test {
+    useJUnitPlatform()
+}
