@@ -1,9 +1,9 @@
 #language:ru
-@test2
+@test2 @UI @All @browserMax
 Функционал:
 
   Сценарий: меняем город
-    И открыть страницу "https://www.invitro.ru/moscow/radiology/"
+    #И открыть страницу "https://www.invitro.ru/moscow/radiology/"
     И ожидать секунд 1
     И выполнено нажатие на элемент с xpath: ".//div[@id='city']"
     И ожидать секунд 3
